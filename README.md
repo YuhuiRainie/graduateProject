@@ -1,4 +1,4 @@
-# graduateProject
+# Plant diseases classfication with deep learning
 
 Introduction
 ----
