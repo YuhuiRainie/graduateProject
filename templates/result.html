@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Prediction result</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <style>
+  /* Make the image fully responsive */
+  .carousel-inner img {
+      width: 100%;
+      height: 100%;
+  }
+  .analysis {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  margin: 0%;
+}
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #fc7419;
+   color: white;
+   text-align: center;
+}
+.jumbotron img{margin: 4px 2px 8px 70px;}
+  </style>
+</head>
+<body>
+  <div class="container">
+      <div class="jumbotron">
+          <div id="demo" class="carousel slide" data-ride="carousel">
+
+              <!-- Indicators -->
+              <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+              </ul>
+              
+              <!-- The slideshow -->
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="../static/4.jpg" alt="Los Angeles" width="550" height="300px">
+                </div>
+                <div class="carousel-item">
+                  <img src="../static/2.jpg" alt="Chicago" width="550" height="300px">
+                </div>
+                <div class="carousel-item">
+                  <img src="../static/3.jpg" alt="New York" width="550" height="300px">
+                </div>
+              </div>
+              
+              <!-- Left and right controls -->
+              <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+              </a>
+              <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+              </a>
+            
+      </div>
+  </div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      
+    </div>
+    <div class="col-sm-4">
+  <h2>Prediction {{image_name}}</h2>
+  <img src= "{{ url_for('send_image', image_name = image_name )}}"
+  alt="random points as png"
+  height="200">
+    
+
+{% for i in range(0,4) %}
+<div>
+  <table>
+    <tr>
+      <td>{{top_class[i]}}: {{top_probability[i]}}</td>
+    </tr>
+  </table>
+</div>
+
+{% endfor %}
+    </div>
+   
+  </div>
+</div>
+<div class="container">
+  <img class="analysis" src= "{{ url_for('show_image', image_name = image_name )}}"
+  alt="show plot"
+  width="1200" height="670"
+  >
+</div>
+<div class="container">
+  <h3>The result is not correct?</h3>
+  <h3>Please submit the correct anwser here</h3>
+  <form action= "">
+    <input type="text" name='correctAnw'><br>
+    <input type="submit" Value="Submit"><br>
+  </form>
+</div>
+<div class="container">
+  <br><br><br><br>
+</div>
+<div class="footer">
+  <p>MADE BY Yuhui Liu </p>
+</div>
+	
+</body>
+</html>
+<script >
+</script>
